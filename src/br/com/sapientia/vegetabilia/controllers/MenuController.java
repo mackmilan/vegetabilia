@@ -10,6 +10,7 @@ import br.com.sapientia.vegetabilia.views.HomeView;
 import br.com.sapientia.vegetabilia.views.InternetView;
 import br.com.sapientia.vegetabilia.views.MedidaView;
 import br.com.sapientia.vegetabilia.views.ProdutoView;
+import br.com.sapientia.vegetabilia.views.SaidaView;
 import br.com.sapientia.vegetabilia.views.TipoProdutoView;
 
 import com.vaadin.ui.MenuBar.Command;
@@ -124,6 +125,17 @@ public class MenuController {
 			public void menuSelected(MenuItem selectedItem) {
 				VegetabiliaUI.getCurrent().getNavigator()
 						.navigateTo(EntradaView.NAME);
+			}
+		};
+	}
+
+	public Command saida() {
+		return new Command() {
+
+			@Override
+			public void menuSelected(MenuItem selectedItem) {
+				VegetabiliaUI.getCurrent().getNavigator()
+						.navigateTo(SaidaView.NAME);
 			}
 		};
 	}

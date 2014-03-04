@@ -12,6 +12,7 @@ import br.com.sapientia.vegetabilia.views.HomeView;
 import br.com.sapientia.vegetabilia.views.InternetView;
 import br.com.sapientia.vegetabilia.views.MedidaView;
 import br.com.sapientia.vegetabilia.views.ProdutoView;
+import br.com.sapientia.vegetabilia.views.SaidaView;
 import br.com.sapientia.vegetabilia.views.TipoProdutoView;
 
 import com.vaadin.annotations.Theme;
@@ -53,6 +54,8 @@ public class VegetabiliaUI extends UI {
 								@Override
 								public void modifyBootstrapPage(
 										BootstrapPageResponse response) {
+									response.getDocument().title(
+											"Vegetabilia - 0.0.1");
 									response.getDocument()
 											.head()
 											.append("<script type='text/javascript' src='./VAADIN/js/jquery-2.0.3.min.js'></script>");
@@ -92,6 +95,7 @@ public class VegetabiliaUI extends UI {
 		nav.addView(EstoqueView.NAME, EstoqueView.class);
 		nav.addView(DespesaView.NAME, DespesaView.class);
 		nav.addView(EntradaView.NAME, EntradaView.class);
+		nav.addView(SaidaView.NAME, SaidaView.class);
 	}
 
 }

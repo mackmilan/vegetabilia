@@ -25,12 +25,15 @@
 		<mapping class="br.com.sapientia.vegetabilia.models.Desperdicio" />
 		<mapping class="br.com.sapientia.vegetabilia.models.Despesa" />
 		<mapping class="br.com.sapientia.vegetabilia.models.Entrada" />
+		<mapping class="br.com.sapientia.vegetabilia.models.EntradaHasProduto" />
 		<mapping class="br.com.sapientia.vegetabilia.models.Estado" />
 		<mapping class="br.com.sapientia.vegetabilia.models.Funcionario" />
 		<mapping class="br.com.sapientia.vegetabilia.models.Medida" />
 		<mapping class="br.com.sapientia.vegetabilia.models.Permissao" />
 		<mapping class="br.com.sapientia.vegetabilia.models.Produto" />
 		<mapping class="br.com.sapientia.vegetabilia.models.Saida" />
+		<mapping class="br.com.sapientia.vegetabilia.models.SaidaHasFuncionario" />
+		<mapping class="br.com.sapientia.vegetabilia.models.SaidaHasProduto" />
 		<mapping class="br.com.sapientia.vegetabilia.models.TipoProduto" />
 		<mapping class="br.com.sapientia.vegetabilia.models.Usuario" />
 	</session-factory>

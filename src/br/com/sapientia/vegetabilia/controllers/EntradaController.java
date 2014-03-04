@@ -1,9 +1,8 @@
 package br.com.sapientia.vegetabilia.controllers;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Locale;
 
 import br.com.sapientia.vegetabilia.dao.EntradaDAO;
@@ -50,7 +49,7 @@ public class EntradaController {
 	public TextField qnt;
 	public ComboBox produto;
 
-	private List<Produto> produtoList = new ArrayList<Produto>();
+	private HashMap<Integer, Integer> produtoList = new HashMap<Integer, Integer>();
 
 	public Table buildGrid() {
 		// grid
@@ -73,10 +72,6 @@ public class EntradaController {
 	public FormLayout buildForm() {
 		fl = new FormLayout();
 		fl.setWidth("100%");
-
-		// produtos = new TwinColSelect("Produtos:");
-		// produtos.setWidth("100%");
-		// fl.addComponent(produtos);
 
 		addProduto = new Button("Adicionar produto");
 		addProduto.setWidth("100%");
@@ -118,9 +113,15 @@ public class EntradaController {
 						EntradaHasProduto ehp = new EntradaHasProduto();
 						ehp.setProduto(p);
 						ehp.setEntrada(e);
+						ehp.setQnt(produtoList.get(p.getCodProduto()));
 
 						try {
 							entradaHasProdutoDAO.salvar(ehp);
+
+							p.setQuantidade(p.getQuantidade()
+									+ produtoList.get(p.getCodProduto()));
+
+							produtoDAO.editar(p);
 						} catch (Exception e2) {
 							Notification.show("Erro ao salvar!!",
 									Type.ERROR_MESSAGE);
@@ -153,8 +154,8 @@ public class EntradaController {
 								if (buttonId.toString().equals("mb_SAVE")) {
 									Produto p = (Produto) produto.getValue();
 
-									produtoList.add((Produto) produto
-											.getValue());
+									produtoList.put(p.getCodProduto(),
+											Integer.parseInt(qnt.getValue()));
 									list.addItem(p);
 									list.setItemCaption(p, p.getNome() + " - "
 											+ qnt.getValue() + " "

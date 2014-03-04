@@ -73,7 +73,7 @@ public class MainMenu extends CustomComponent {
 		estoque.addItem("Entrada", new ThemeResource(
 				"resources/icons/lorry_go.png"), controller.entrada());
 		estoque.addItem("Saída", new ThemeResource("resources/icons/box.png"),
-				null);
+				controller.saida());
 		estoque.addItem("Devolução", new ThemeResource(
 				"resources/icons/arrow_undo.png"), null);
 		estoque.addItem("Desperdício", new ThemeResource(
